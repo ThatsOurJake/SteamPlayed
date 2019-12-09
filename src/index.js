@@ -28,3 +28,5 @@ cron.schedule(`*/${config.interval} * * * *`, async () => {
     console.error(error);
   }
 });
+
+console.log(`Booted and activated cron to run every ${config.interval} mins`);
