@@ -13,6 +13,8 @@ const mapGames = (games) => games.map(game => ({
 }));
 
 cron.schedule(`*/${config.interval} * * * *`, async () => {
+  console.log('===== Getting steam games =====');
+
   try {
     const { data } = await axios.get(endpoint, {
       params: {
@@ -24,6 +26,8 @@ cron.schedule(`*/${config.interval} * * * *`, async () => {
     const { response: { games } } = data;
     const mappedGames = mapGames(games);
     await saveGames(mappedGames);
+
+    console.log('===== Finished saving games =====');
   } catch (error) {
     console.error(error);
   }
