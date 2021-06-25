@@ -3,6 +3,7 @@ const hash = require('object-hash');
 const { DateTime } = require('luxon');
 
 const DataStore = require('nedb');
+const { logger } = require('./logger');
 
 const gamesStore = new DataStore({
   autoload: true,
@@ -29,9 +30,9 @@ const saveGames = async (games) => {
         }, error => error ? reject(error) : resolve());
       });
 
-      console.log(`Saved: ${name}`);
+      logger.info(`Saved: ${name}`);
     } else {
-      console.log(`Not Saved: ${name} - No updates`);
+      logger.info(`Not Saved: ${name} - No updates`);
     }
   }
 };
