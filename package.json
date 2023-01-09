@@ -20,7 +20,7 @@
   "dependencies": {
     "@elastic/ecs-winston-format": "^1.1.0",
     "axios": "^0.21.1",
-    "luxon": "^1.21.3",
+    "luxon": "^2.5.2",
     "nedb": "^1.8.0",
     "node-cron": "^2.0.3",
     "object-hash": "^2.0.1",
